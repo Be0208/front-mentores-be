@@ -13,11 +13,10 @@ const handleLogin = async () => {
     router.push('/home')
   }
 }
-
 </script>
 
 <template>
-  <div class="background">
+  <div class="background1">
     <div class="container1">
       <div class="form-section">
         <h2>Entrar no MentorsMenager</h2>
@@ -38,11 +37,12 @@ const handleLogin = async () => {
 </template>
 
 <style scoped>
-.background {
+.background1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 100%;
+  width: 100%;
   background-color: #f0f0f0;
 }
 

@@ -4,6 +4,8 @@ import { getMentors, createMentors, deleteMentorById } from '@/services/apiMento
 import checkLogged from '@/utils/checkLogged'
 import type { MentorType } from '@/types/MentorType'
 import router from '@/router'
+import MenuSite from '@/components/MenuSite.vue'
+import FooterSite from '@/components/FooterSite.vue'
 
 const mentores = ref<MentorType[]>([])
 
@@ -47,13 +49,6 @@ const filteredMentores = computed(() => {
   )
 })
 
-const logout = () => {
-  sessionStorage.removeItem('token')
-  window.location.reload()
-  // Redireciona para a página de login
-  router.push('/login')
-}
-
 // Montagem inicial
 onMounted(() => {
   getData()
@@ -63,9 +58,11 @@ onMounted(() => {
 
 <template>
   <MenuSite />
-  <main>
-    <v-card class="mx-auto" max-width="75%">
+
+  <main class="my-5 mx-5">
+    <v-card class="my-5 " width="100%" >
       <v-toolbar color="grey">
+        <!-- modal -->
         <v-toolbar-title>Lista de mentores:</v-toolbar-title>
 
         <v-spacer></v-spacer>
@@ -155,9 +152,9 @@ onMounted(() => {
           </template>
 
           <template v-slot:append>
-            <v-btn color="grey-2" icon="mdi-update" variant="text"></v-btn>
+            <v-btn color="grey-darken-2" icon="mdi-update" variant="text"></v-btn>
             <v-btn
-              color="grey-2"
+              color="grey-darken-2"
               icon="mdi-delete"
               variant="text"
               @click="deleteMentor(mentor.id)"
@@ -167,22 +164,6 @@ onMounted(() => {
       </v-list>
     </v-card>
   </main>
+
   <FooterSite />
-
-  <!-- Botão Flutuante de Logout -->
-  <v-btn class="logout-btn" color="red" icon="mdi-logout" @click="logout"></v-btn>
 </template>
-
-<style scoped>
-body {
-  width: 100%;
-  height: 100vh;
-}
-
-.logout-btn {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 1000;
-}
-</style>

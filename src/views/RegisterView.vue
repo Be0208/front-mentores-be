@@ -12,7 +12,7 @@ const router = useRouter()
 const handleLogin = async () => {
   const response = await createAccount(name.value, email.value, password.value, role.value)
   if (response) {
-    router.push('/')
+    router.push('/home')
   }
 }
 </script>
@@ -49,7 +49,8 @@ const handleLogin = async () => {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 100%;
+  width: 100%;
   background-color: #f0f0f0;
 }
 
