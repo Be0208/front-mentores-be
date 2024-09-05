@@ -3,7 +3,6 @@ import { ref, onMounted, computed } from 'vue'
 import { getMentors, createMentors, deleteMentorById } from '@/services/apiMentors'
 import checkLogged from '@/utils/checkLogged'
 import type { MentorType } from '@/types/MentorType'
-import router from '@/router'
 import MenuSite from '@/components/MenuSite.vue'
 import FooterSite from '@/components/FooterSite.vue'
 
